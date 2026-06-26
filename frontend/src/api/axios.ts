@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://task-management-system-7l0t.onrender.com/api",
 });
 
 // Attach the saved login token to every request automatically
