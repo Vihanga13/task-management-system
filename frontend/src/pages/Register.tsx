@@ -27,48 +27,68 @@ export default function Register() {
 
   return (
     <div className="auth-page">
-      <form className="auth-card" onSubmit={handleSubmit}>
-        <h1>Create account</h1>
-        <p className="auth-subtitle">Start organizing your tasks</p>
+      <div className="auth-brand">
+        <div className="auth-brand-mark">Task Manager</div>
+        <div className="auth-brand-body">
+          <h1>Start organizing
+            in minutes.</h1>
+          <p>
+            The first account you create becomes an Admin with full
+            visibility. Everyone after that manages their own tasks.
+          </p>
+          <div className="auth-brand-stamps">
+            <span>Low</span>
+            <span>Medium</span>
+            <span>High</span>
+          </div>
+        </div>
+        <div className="auth-brand-foot">Search, filter, and assign with ease</div>
+      </div>
 
-        {error && <div className="error-banner">{error}</div>}
+      <div className="auth-form-side">
+        <form className="auth-card" onSubmit={handleSubmit}>
+          <h1>Create account</h1>
+          <p className="auth-subtitle">Start organizing your tasks</p>
 
-        <label>Name</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          placeholder="Your name"
-        />
+          {error && <div className="error-banner">{error}</div>}
 
-        <label>Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          placeholder="you@example.com"
-        />
+          <label>Name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            placeholder="Your name"
+          />
 
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          placeholder="At least 6 characters"
-          minLength={6}
-        />
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            placeholder="you@example.com"
+          />
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Creating account..." : "Register"}
-        </button>
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            placeholder="At least 6 characters"
+            minLength={6}
+          />
 
-        <p className="auth-switch">
-          Already have an account? <Link to="/login">Log In</Link>
-        </p>
-      </form>
+          <button type="submit" disabled={loading} className="btn-primary">
+            {loading ? "Creating account..." : "Register"}
+          </button>
+
+          <p className="auth-switch">
+            Already have an account? <Link to="/login">Log In</Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }
